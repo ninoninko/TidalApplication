@@ -116,6 +116,13 @@ namespace TidalApplication
             return list;
         }
 
+        /// <summary>
+        /// The following method reads in the information from the list into
+        /// classes using the inheritance structure
+        /// </summary>
+        /// <param name="list"> is the list from which the methods reads </param>
+        /// <param name="caseDecision"> is the case scenario which the method will consider </param>
+        /// <returns></returns>
         public static dynamic getClassesFromListTracks(List<string> list, int caseDecision)
         {
             List<Song> songs = new List<Song>();

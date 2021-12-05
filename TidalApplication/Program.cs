@@ -67,6 +67,9 @@ namespace TidalApplication
             switch(userChoice)
             {
                 case 1:
+                    ProgramCases.RepresentLists(songs, advertisements);
+                    SwitchChoice(userChoiceAlbum, songs, advertisements);
+                    break;
                 case 2:
                 case 3:
                 case 4:

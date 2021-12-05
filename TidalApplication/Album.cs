@@ -78,5 +78,15 @@ namespace TidalApplication
         {
             return _yearOfRelease;
         }
+
+        /// <summary>
+        /// The following method represents the class's
+        /// attributes in a human - friendly way
+        /// </summary>
+        public void Representate()
+        {
+            Console.WriteLine("Album: " + _nameOfArtist.Replace("CD", "") + "'s " 
+                + _nameOfAlbum + " from " + _yearOfRelease + ".");
+        }
     }
 }

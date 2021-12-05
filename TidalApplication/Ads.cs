@@ -60,6 +60,13 @@ namespace TidalApplication
             return _adAndDuration;
         }
 
-
+        /// <summary>
+        /// The following method represents the class's
+        /// attributes in a human - friendly way
+        /// </summary>
+        public void Representate()
+        {
+            Console.WriteLine("Next add: " + _adAndType.Replace("AD ", "") + "(" + _adAndDuration + ")");
+        }
     }
 }
