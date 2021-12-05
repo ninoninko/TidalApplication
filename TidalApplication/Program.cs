@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace TidalApplication
 {
@@ -7,8 +9,52 @@ namespace TidalApplication
         static void Main(string[] args)
         {
 
+            List<string> listAlbumNames = getListCDs();
+
+            string userChoiceAlbum = getAlbumName(listAlbumNames);
+             Console.WriteLine(userChoiceAlbum);
             MenuMethod();
 
+        }
+
+        public static string getAlbumName(List<string> listAlbumNames)
+        {
+            Console.WriteLine("Dear user, you are asked to choose an album which" +
+                "\nyou want to be opened by the program. These" +
+                "\nare your available choices: ");
+
+            foreach(string albumName in listAlbumNames)
+            {
+                Console.WriteLine(albumName.Replace(".txt", ""));
+            }
+
+            string userChoice = Console.ReadLine();
+
+            while (!listAlbumNames.Contains(userChoice + ".txt"))
+            {
+                Console.Write("Dear user, you have not inputted a correct" +
+                    "\nalbum name. Please, try again: ");
+                userChoice = Console.ReadLine();
+            }
+
+            return userChoice;
+
+        }
+
+        public static List<string> getListCDs()
+        {
+            List<string> fileNames = new List<string>();
+
+            DirectoryInfo directory = new DirectoryInfo(@"D:\C#\TidalProject\TidalApplication\TidalApplication"); //Assuming Test is your Folder
+
+            FileInfo[] Files = directory.GetFiles("*.txt"); //Getting Text files
+
+            foreach (FileInfo file in Files)
+            {
+                fileNames.Add(file.Name);
+            }
+
+            return fileNames;
         }
 
         public static void MenuMethod()
