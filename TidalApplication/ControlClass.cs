@@ -115,5 +115,38 @@ namespace TidalApplication
 
             return list;
         }
+
+        public static dynamic getClassesFromListTracks(List<string> list, int caseDecision)
+        {
+            List<Song> songs = new List<Song>();
+            List<Ads> ads = new List<Ads>();
+
+            if (caseDecision == 1)
+            {
+                string[] elements = list.ElementAt(1).Split(", ");
+                for (int i = 2; i < list.Count; i++)
+                {
+                    string[] moreElements = list.ElementAt(i).Split(", ");
+                    songs.Add(new Song(elements[0], elements[1], elements[2], moreElements[0], moreElements[1], moreElements[2]));
+                }
+
+                return songs;
+            }
+            
+            if (caseDecision == 2)
+            {
+                for (int i = 1; i < list.Count; i++)
+                {
+                    string[] moreElements = list.ElementAt(i).Split(", ");
+                    ads.Add(new Ads(moreElements[0], moreElements[1]));
+                }
+
+                return ads;
+            }
+
+            return null;
+
+            
+        }
     }
 }
