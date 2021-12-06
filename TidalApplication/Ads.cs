@@ -69,7 +69,17 @@ namespace TidalApplication
         /// </summary>
         public string Representate()
         {
-            return ("Next add: " + _adAndType.Replace("AD ", "") + "(" + _adAndDuration + ")");
+            return ("Next add: " + _adAndType.Replace("ADD ", "") + "(" + _adAndDuration + ")");
+        }
+
+        /// <summary>
+        /// The following string represents the method's 
+        /// attributes as in the file
+        /// </summary>
+        /// <returns> the representation </returns>
+        public override string ToString()
+        {
+            return _adAndType + ", "  + _adAndDuration;
         }
     }
 }

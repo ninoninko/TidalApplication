@@ -282,5 +282,35 @@ namespace TidalApplicationTests
             Assert.IsTrue(song.Representate(1).Equals("Album:  Virgo's Deva from 2021.Track  ()"));
         }
 
+        /// <summary>
+        /// The following method checks whether 
+        /// the Song's class attributes are 
+        /// presented in the right way
+        /// </summary>
+        [TestMethod]
+        public void ToStringTest()
+        {
+            // Arrange
+            Song song = new Song("", "", "", "SONG 1", "Marsel", "1:11");
+
+            // Assert
+            Assert.IsTrue(song.ToString().Equals("SONG 1, Marsel, 1:11"));
+        }
+
+        /// <summary>
+        /// The following method checks whether 
+        /// the Song's class attributes are 
+        /// presented in the right way
+        /// </summary>
+        [TestMethod]
+        public void ToStringTestAlbum()
+        {
+            // Arrange
+            Album song = new Album("CD YANAKI", "MISERY", "2021");
+
+            // Assert
+            Assert.IsTrue(song.ToString().Equals("CD YANAKI, MISERY, 2021"));
+        }
+
     }
 }

@@ -93,8 +93,18 @@ namespace TidalApplication
         public string Representate(int current)
         {
             
-            return (base.Representate() + "Track " + _trackName.Replace("SONG " + current, "")
+            return (base.Representate() + "\nTrack " + _trackName.Replace("SONG " + current, "")
                 + " (" + _trackDuration +")");
+        }
+
+        /// <summary>
+        /// Returns the class's attributes
+        /// in the same format as in the file
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return _trackNumber + ", " + _trackName + ", " + _trackDuration;
         }
 
     }

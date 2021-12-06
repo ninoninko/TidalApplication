@@ -88,5 +88,16 @@ namespace TidalApplication
             return ("Album: " + _nameOfArtist.Replace("CD", "") + "'s " 
                 + _nameOfAlbum + " from " + _yearOfRelease + ".");
         }
+
+        /// <summary>
+        /// The following method returns the 
+        /// class's attributes in the same 
+        /// format as in the file
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return _nameOfArtist + ", " + _nameOfAlbum + ", " + _yearOfRelease;
+        }
     }
 }

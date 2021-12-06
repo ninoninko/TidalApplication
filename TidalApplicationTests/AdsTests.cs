@@ -148,7 +148,7 @@ namespace TidalApplicationTests
         public void RepresentateStringTest()
         {
             // Arrange
-            Ads ads = new Ads("AD DSK", "0:12");
+            Ads ads = new Ads("ADD DSK", "0:12");
 
             // Assert
             Assert.IsTrue(ads.Representate().Equals("Next add: DSK(0:12)"));
@@ -163,7 +163,7 @@ namespace TidalApplicationTests
         public void RepresentateStringFirstTest()
         {
             // Arrange
-            Ads ads = new Ads("AD DSK", "");
+            Ads ads = new Ads("ADD DSK", "");
 
             // Assert
             Assert.IsTrue(ads.Representate().Equals("Next add: DSK()"));
@@ -197,6 +197,21 @@ namespace TidalApplicationTests
 
             // Assert
             Assert.IsTrue(ads.Representate().Equals("Next add: ()"));
+        }
+
+        /// <summary>
+        /// The following method checks whether 
+        /// the Ads' class attributes are 
+        /// presented in the right way
+        /// </summary>
+        [TestMethod]
+        public void ToStringTest()
+        {
+            // Arrange
+            Ads ads = new Ads("ADD DSK", "0:12");
+
+            // Assert
+            Assert.IsTrue(ads.ToString().Equals("ADD DSK, 0:12"));
         }
     }
 }

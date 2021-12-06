@@ -5,7 +5,17 @@
       "ProjectGuid": "a869fc58-88f9-400a-9a51-d2f61c2a1dbe",
       "DisplayName": "TidalApplication",
       "ColorIndex": 0
+    },
+    "36e5efcd-5308-40e5-9ff4-434da7a94ca9": {
+      "ProjectGuid": "36e5efcd-5308-40e5-9ff4-434da7a94ca9",
+      "DisplayName": "TidalApplicationTests",
+      "ColorIndex": 1
+    },
+    "902298b4-3187-4be9-833c-49c01a8d4e39": {
+      "ProjectGuid": "902298b4-3187-4be9-833c-49c01a8d4e39",
+      "DisplayName": "TidalApplicationTests",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }
