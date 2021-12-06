@@ -87,10 +87,10 @@ namespace TidalApplication
         /// The following method represents the class's
         /// attributes in a human - friendly way
         /// </summary>
-        public void Representate(int current)
+        public string Representate(int current)
         {
-            base.Representate();
-            Console.WriteLine("Track " + _trackName.Replace("SONG " + current, "")
+            
+            return (base.Representate() + "Track " + _trackName.Replace("SONG " + current, "")
                 + " (" + _trackDuration +")");
         }
 

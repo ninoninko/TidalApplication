@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("TidalApplicationTests")]
+
 namespace TidalApplication
 {
+
     internal class Ads
     {
-        
         private string _adAndType;
         private string _adAndDuration;
 
@@ -64,9 +67,9 @@ namespace TidalApplication
         /// The following method represents the class's
         /// attributes in a human - friendly way
         /// </summary>
-        public void Representate()
+        public string Representate()
         {
-            Console.WriteLine("Next add: " + _adAndType.Replace("AD ", "") + "(" + _adAndDuration + ")");
+            return ("Next add: " + _adAndType.Replace("AD ", "") + "(" + _adAndDuration + ")");
         }
     }
 }
