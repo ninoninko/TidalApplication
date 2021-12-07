@@ -34,7 +34,7 @@ namespace TidalApplication
                 else
                 {
                     keeper = 0;
-                    toPrint.Add(advertisements.ElementAt(i));
+                    toPrint.Add(advertisements.ElementAt(keeper));
                 }
             }
 
@@ -68,7 +68,8 @@ namespace TidalApplication
         /// <param name="songs"> is the list of songs </param>
         /// <param name="advertisements"> is the list of advertisements </param>
         public static void WriteToFiles(List<Song> songs, List<Ads> advertisements)
-        {
+        {          
+
             Console.WriteLine("Dear user, you have decided to add additional tracks to your albums." +
                 "\nIn which album have you decided to add new tracks?");
 
@@ -116,7 +117,7 @@ namespace TidalApplication
             
             DontCreateAlbum(chosenAlbums, songs, advertisements, newAlbum);
            
-        }     
+        }
 
         /// <summary>
         /// The following method add the new musical file to the list of files
@@ -150,7 +151,7 @@ namespace TidalApplication
             Console.WriteLine("Dear user, how many tracks to you intent to write: ");
             string numberOfTracksString = Console.ReadLine();
             int numberOfTracks = 0;
-                
+
             while (!(int.TryParse(numberOfTracksString, out numberOfTracks) && numberOfTracks > 0))
             {
                 Console.WriteLine("Dear user, please input a number larger than 0");
@@ -187,6 +188,12 @@ namespace TidalApplication
                 numberOfTracks--;
             }
 
+            GoToFileWriting(userChoiceAlbum, songs, advertisements, newAlbum);
+
+        }
+
+        public static void GoToFileWriting(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements, bool newAlbum)
+        { 
             // Write the list of Songs and the list of adds to the correct file 
             using StreamWriter file = new StreamWriter
             (@"D:\C#\TidalProject\TidalApplication\TidalApplication\" + userChoiceAlbum + ".txt", false);

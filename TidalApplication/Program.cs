@@ -12,7 +12,8 @@ namespace TidalApplication
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-           
+
+            DoesUserOnlyWantToAddSongs();
             InfoCreaterMethod();           
 
         }
@@ -95,6 +96,38 @@ namespace TidalApplication
                     Environment.Exit(0);
                     break;
                 
+            }
+        }
+
+        /// <summary>
+        /// The following method circumvents the swtich in
+        /// the main part of the application to offer a
+        /// faster user experience
+        /// </summary>
+        public static void DoesUserOnlyWantToAddSongs()
+        {
+            Console.WriteLine("Dear user, do you want to add a song to a NEW album" +
+                "\ninstead of starting the entire application?" +
+                "\nPlease, type 'yes' if that is what you want.");
+
+            string decision = Console.ReadLine();
+
+            if (decision.Equals("yes"))
+            {
+                Console.WriteLine("How do you want to name your new album?");
+                string chosenAlbums = Console.ReadLine();
+                ProgramCases.DontCreateAlbum(chosenAlbums, null, null, true);
+            }
+
+            Console.WriteLine("Dear user, do you want to terminate the" +
+                "\nexecution of the aplication?" +
+                "\nPlease, type 'yes' if that is what you want.");
+
+            decision = Console.ReadLine();
+
+            if (decision.Equals("yes"))
+            {
+                Environment.Exit(1);
             }
         }
     }
