@@ -107,7 +107,7 @@ namespace TidalApplication
             }
             catch (Exception exception)
             {
-                
+                Console.WriteLine(exception.ToString());
                 Console.WriteLine("Dear user, something has went horribly wrong." +
                     "\nYou will be referred back to the beginning of the method.");
                 

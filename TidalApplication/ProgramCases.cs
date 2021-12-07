@@ -56,7 +56,7 @@ namespace TidalApplication
 
             }
         }
-
+        
         /// <summary>
         /// The following method is a control method.
         /// It checks whether a new album has to be made
@@ -71,9 +71,10 @@ namespace TidalApplication
 
             List<string> availableAlbums = ControlClass.getListCDs();
             Console.WriteLine("Dear user, here are your available albums: ");
+
             foreach (string album in availableAlbums)
             {
-                Console.WriteLine(album);
+                Console.WriteLine(album.Replace(".txt", ""));
             }
 
             string chosenAlbums = Console.ReadLine();
@@ -98,6 +99,7 @@ namespace TidalApplication
 
                 if (decision.Equals("n"))
                 {
+                    Console.Write("Dear user, please type in the name of the album: ");
                     chosenAlbums = Console.ReadLine();
                 }
                 else
@@ -107,13 +109,13 @@ namespace TidalApplication
                 }
             }
 
-            if (newAlbum == false)
-            {
-                dontCreateAlbum(chosenAlbums, songs, advertisements);
-            }
+            
+            DontCreateAlbum(chosenAlbums, songs, advertisements, newAlbum);
+           
 
 
         }
+        
 
         /// <summary>
         /// The following method add the new musical file to the list of files
@@ -121,49 +123,80 @@ namespace TidalApplication
         /// <param name="userChoiceAlbum"> is the album in which the file is going to be added </param>
         /// <param name="songs"> is the list of songs </param>
         /// <param name="advertisements"> is the list of ads </param>
-        public static void dontCreateAlbum(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements)
+        public static void DontCreateAlbum(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements, bool newAlbum)
         {
-            Console.WriteLine("Dear user, what is the name of the song?");
+            string albumProducer = "CD ";
+            String albumName = "";
+            String albumReleaseYear = "";
 
-            String answerFirst = Console.ReadLine();
-
-            Console.WriteLine("Dear user, what is the duration of the song?" +
-                "\nWrite it in this format '0:00'");
-            String answerSecond = Console.ReadLine();
-
-            Song newSong = new Song(songs.ElementAt(0).GetNameOfArtist(), 
-                songs.ElementAt(0).GetNameOfAlbum(), 
-                songs.ElementAt(0).GetYearOfRelease(),
-                (songs.Count - 1).ToString(), answerFirst, answerSecond);
-
-            // Add the new song to the list
-            songs.Add(newSong);
-
-            try
+            if (newAlbum == true)
             {
-                using StreamWriter file = new StreamWriter
-                    (@"D:\C#\TidalProject\TidalApplication\TidalApplication\" + userChoiceAlbum + ".txt", false);
+                songs = new List<Song>();
+                Console.WriteLine("Who is the producer of the album?");
+                albumProducer = albumProducer + Console.ReadLine() + ", ";
+                Console.WriteLine("What is the name of the album?");
+                albumName = Console.ReadLine() + ", ";
+                Console.WriteLine("In which year was the album produced?");
+                albumReleaseYear = Console.ReadLine();
+            }
+
+            Console.WriteLine("Dear user, how many tracks to you intent to write: ");
+            string numberOfTracksString = Console.ReadLine();
+            int numberOfTracks = 0;
+                
+            while (!(int.TryParse(numberOfTracksString, out numberOfTracks) && numberOfTracks > 0))
+            {
+                Console.WriteLine("Dear user, please input a number larger than 0");
+                numberOfTracksString = Console.ReadLine();
+            }
+
+            while (numberOfTracks > 0)
+            {
+                Console.WriteLine("Dear user, what is the name of the song?");
+
+                String answerFirst = Console.ReadLine();
+
+                Console.WriteLine("Dear user, what is the duration of the song?" +
+                    "\nWrite it in this format '0:00'");
+                String answerSecond = Console.ReadLine();
+
+                Song newSong = null;
+                if (newAlbum)
                 {
-                    file.WriteLine("CDS");
-                    file.WriteLine(songs.ElementAt(0).ToString());
-                    foreach (Song song in songs)
-                    {
-                        file.WriteLine(song.ToString());
-                    }
-                    file.WriteLine("ADDS");
-                    foreach (Ads ad in advertisements)
-                    {
-                        file.WriteLine(ad.ToString());
-                    }
-
-                    file.Close();
+                    newSong = new Song(albumProducer, albumName, albumReleaseYear,
+                    "SONG " + (songs.Count + 1).ToString(), answerFirst, answerSecond);
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("No idea what happened here");
+                else
+                {
+                    newSong = new Song(songs.ElementAt(0).GetNameOfArtist(),
+                        songs.ElementAt(0).GetNameOfAlbum(),
+                        songs.ElementAt(0).GetYearOfRelease(),
+                        "SONG " + (songs.Count + 1).ToString(), answerFirst, answerSecond);
+                }
+
+                // Add the new song to the list
+                songs.Add(newSong);
+                numberOfTracks--;
             }
 
-        }
+            
+            using StreamWriter file = new StreamWriter
+            (@"D:\C#\TidalProject\TidalApplication\TidalApplication\" + userChoiceAlbum + ".txt", false);
+            { 
+                 file.WriteLine("CDS");
+                 file.WriteLine(songs.ElementAt(0).ToStringSuper());
+                 foreach (Song song in songs)
+                 {
+                     file.WriteLine(song.ToString());
+                 }
+                 file.WriteLine("ADDS");
+                 foreach (Ads ad in advertisements)
+                 {
+                    file.WriteLine(ad.ToString());
+                 }
+
+                 file.Close();
+            }         
+        }       
     }
 }

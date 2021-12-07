@@ -95,7 +95,7 @@ namespace TidalApplication
         /// format as in the file
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+        public string ToStringSuper()
         {
             return _nameOfArtist + ", " + _nameOfAlbum + ", " + _yearOfRelease;
         }

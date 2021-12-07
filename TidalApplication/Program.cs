@@ -71,9 +71,9 @@ namespace TidalApplication
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
                 case 2:
-                   // ProgramCases.WriteToFiles(songs, advertisements);
-                 //   SwitchChoice(userChoiceAlbum, songs, advertisements);
-                   // break;
+                    ProgramCases.WriteToFiles(songs, advertisements);
+                    SwitchChoice(userChoiceAlbum, songs, advertisements);
+                    break;
                 case 3:
                 case 4:
                     Console.WriteLine("Dear user, we are still working on option " + userChoice +
