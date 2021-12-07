@@ -1,0 +1,25 @@
+ADDS
+ADD ING Bank, 0:20
+ADD Bol.com, 0:15
+ADD Albert Heijn, 0:30
+ADD Specsavers, 0:15
+ADD Kruidvat, 0:10
+ADD MediaMarkt.nl, 0:20
+ADD KPN, 0:30
+ADD TU Delft, 0:15
+ADD ABN Amro, 0:30
+ADD Rabobank, 0:15
+ADD DSK, 0:11
+ADD SMG, 0:12
+ADD Horemak, 0:13
+ADD Nega, 0:14
+ADD IKEA, 0:15
+ADD Videnov, 0:16
+ADD Amazon, 0:17
+ADD Jumbo, 0:18
+ADD eToro, 0:19
+ADD Bitcoin, 0:11
+ADD Mac, 0:12
+ADD Apple, 0:13
+ADD BCC, 0:14
+ADD Microsoft, 0:15

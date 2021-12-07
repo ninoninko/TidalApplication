@@ -22,16 +22,22 @@ namespace TidalApplication
         /// </summary>
         public static void InfoCreaterMethod()
         {
+            // This list is the list of the names of the available albums
             List<string> listAlbumNames = ControlClass.getListCDs();
 
+            // This string is the album which the user has chosen to open
             string userChoiceAlbum = ControlClass.getAlbumName(listAlbumNames);
 
+            // This is a string representation of the tracks inside the albums + the album name 
             List<string> tracks = ControlClass.getInfoAsList(userChoiceAlbum, 1);
 
+            // This is a Song object representation of the tracks from the 'tracks' list
             List<Song> songs = ControlClass.getClassesFromListTracks(tracks, 1);
-            
+
+            // This is a string representation of the ads inside the albums  
             List<string> ads = ControlClass.getInfoAsList(userChoiceAlbum, 2);
 
+            // This is a Ads object representation of the ads from the 'ads' list
             List<Ads> advertisements = ControlClass.getClassesFromListTracks(ads, 2);
 
             SwitchChoice(userChoiceAlbum, songs, advertisements);
@@ -49,6 +55,7 @@ namespace TidalApplication
                 "\n4 – Shuffle" +
                 "\n5 – Stop the program");
 
+            // Get the user's choice to proceed
             int userChoice = ControlClass.GetNumberForChoice();
 
             return userChoice;

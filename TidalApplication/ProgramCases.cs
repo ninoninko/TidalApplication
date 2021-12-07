@@ -116,8 +116,7 @@ namespace TidalApplication
             
             DontCreateAlbum(chosenAlbums, songs, advertisements, newAlbum);
            
-        }
-        
+        }     
 
         /// <summary>
         /// The following method add the new musical file to the list of files
@@ -136,6 +135,9 @@ namespace TidalApplication
             if (newAlbum == true)
             {
                 songs = new List<Song>();
+                advertisements = new List<Ads>();
+                List<string> ads = ControlClass.getInfoAsList("AdditionalAds", 2);
+                advertisements = ControlClass.getClassesFromListTracks(ads, 2);
                 Console.WriteLine("Who is the producer of the album?");
                 albumProducer = albumProducer + Console.ReadLine();
                 Console.WriteLine("What is the name of the album?");
@@ -189,17 +191,28 @@ namespace TidalApplication
             using StreamWriter file = new StreamWriter
             (@"D:\C#\TidalProject\TidalApplication\TidalApplication\" + userChoiceAlbum + ".txt", false);
             { 
-                 file.WriteLine("CDS");
-                 file.WriteLine(songs.ElementAt(0).ToStringSuper());
-                 foreach (Song song in songs)
-                 {
-                     file.WriteLine(song.ToString());
-                 }
-                 file.WriteLine("ADDS");
-                 foreach (Ads ad in advertisements)
-                 {
-                    file.WriteLine(ad.ToString());
-                 }
+                file.WriteLine("CDS");
+                file.WriteLine(songs.ElementAt(0).ToStringSuper());
+                foreach (Song song in songs)
+                {
+                    file.WriteLine(song.ToString());
+                }
+
+                file.WriteLine("ADDS");
+                if (newAlbum == false)
+                {
+                    foreach (Ads ad in advertisements)
+                    {
+                        file.WriteLine(ad.ToString());
+                    }
+                } else
+                {
+                    Random rand = new Random();
+                    for (int i = 0; i < songs.Count; i++)
+                    {
+                        file.WriteLine(advertisements.ElementAt(rand.Next(1, 26)).ToString());
+                    }
+                }
 
                  file.Close();
             }         

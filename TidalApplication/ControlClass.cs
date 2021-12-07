@@ -42,6 +42,7 @@ namespace TidalApplication
                 "\nyou want to be opened by the program. These" +
                 "\nare your available choices: ");
 
+            // Print the names of all albums
             foreach (string albumName in listAlbumNames)
             {
                 Console.WriteLine(albumName.Replace(".txt", ""));
@@ -49,6 +50,7 @@ namespace TidalApplication
 
             string userChoice = Console.ReadLine();
 
+            // Check if the user is typing a real album
             while (!listAlbumNames.Contains(userChoice + ".txt"))
             {
                 Console.Write("Dear user, you have not inputted a correct" +
@@ -75,7 +77,11 @@ namespace TidalApplication
 
             foreach (FileInfo file in Files)
             {
-                fileNames.Add(file.Name);
+                if (!file.Name.Equals("AdditionalAds.txt"))
+                {
+                    fileNames.Add(file.Name);
+                }
+                
             }
 
             return fileNames;
@@ -96,6 +102,8 @@ namespace TidalApplication
 
                 foreach (string line in lines)
                 {
+                    // If the case is 1, then we are filling the song list with strings
+                    // If the case if 2, then we are filling the ads list with strings
                     if (((line.Contains("CD") || line.Contains("SONG")) && (caseDecision == 1)) 
                         || (line.Contains("ADD")) && (caseDecision == 2))
                     {
@@ -109,8 +117,7 @@ namespace TidalApplication
             {
                 Console.WriteLine(exception.ToString());
                 Console.WriteLine("Dear user, something has went horribly wrong." +
-                    "\nYou will be referred back to the beginning of the method.");
-                
+                    "\nYou will be referred back to the beginning of the method.");                
             }
 
             return list;
@@ -128,6 +135,7 @@ namespace TidalApplication
             List<Song> songs = new List<Song>();
             List<Ads> ads = new List<Ads>();
 
+            // Fill in the songs list with Song objects
             if (caseDecision == 1)
             {
                 string[] elements = list.ElementAt(1).Split(", ");
@@ -140,6 +148,7 @@ namespace TidalApplication
                 return songs;
             }
             
+            // Fill in the ads list with Ads objects
             if (caseDecision == 2)
             {
                 for (int i = 1; i < list.Count; i++)
