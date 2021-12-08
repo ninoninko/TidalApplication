@@ -18,7 +18,6 @@ namespace TidalApplication
         public static void RepresentLists(List<Song> songs, List<Ads> advertisements)
         {
             List<Object> toPrint = new List<Object>();
-
             // Controls the adds which are added to the toPrint list
             int keeper = 0;
 
@@ -28,7 +27,7 @@ namespace TidalApplication
                 toPrint.Add(songs.ElementAt(i));
                 if (keeper < advertisements.Count)
                 {
-                    toPrint.Add(advertisements.ElementAt(i));
+                    toPrint.Add(advertisements.ElementAt(keeper));
                     keeper++;
                 }
                 else
@@ -192,11 +191,18 @@ namespace TidalApplication
 
         }
 
+        /// <summary>
+        /// The following method writes to the repsective file
+        /// </summary>
+        /// <param name="userChoiceAlbum"> is the file in which we will write </param>
+        /// <param name="songs"> are the songs that have to be written </param>
+        /// <param name="advertisements"> are the advertisements that have to be written </param>
+        /// <param name="newAlbum"> is whether a new file has to be created </param>
         public static void GoToFileWriting(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements, bool newAlbum)
         { 
             // Write the list of Songs and the list of adds to the correct file 
             using StreamWriter file = new StreamWriter
-            (@"D:\C#\TidalProject\TidalApplication\TidalApplication\" + userChoiceAlbum + ".txt", false);
+            (Directory.GetCurrentDirectory() + "\\TextFiles\\" + userChoiceAlbum + ".txt", false);
             { 
                 file.WriteLine("CDS");
                 file.WriteLine(songs.ElementAt(0).ToStringSuper());

@@ -37,10 +37,10 @@ namespace TidalApplication
 
             // This is a string representation of the ads inside the albums  
             List<string> ads = ControlClass.getInfoAsList(userChoiceAlbum, 2);
-
+            
             // This is a Ads object representation of the ads from the 'ads' list
             List<Ads> advertisements = ControlClass.getClassesFromListTracks(ads, 2);
-
+            
             SwitchChoice(userChoiceAlbum, songs, advertisements);
         }
         /// <summary>

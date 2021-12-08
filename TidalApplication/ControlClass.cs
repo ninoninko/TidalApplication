@@ -71,8 +71,7 @@ namespace TidalApplication
         {
             List<string> fileNames = new List<string>();
 
-            DirectoryInfo directory = new DirectoryInfo(@"D:\C#\TidalProject\TidalApplication\TidalApplication"); //Assuming Test is your Folder
-
+            DirectoryInfo directory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\TextFiles");          
             FileInfo[] Files = directory.GetFiles("*.txt"); //Getting Text files
 
             foreach (FileInfo file in Files)
@@ -98,7 +97,7 @@ namespace TidalApplication
             List<string> list = new List<string>();
             try
             {
-                string[] lines = File.ReadAllLines(@"D:\C#\TidalProject\TidalApplication\TidalApplication\" + fromAlbum + ".txt");
+                string[] lines = File.ReadAllLines(Directory.GetCurrentDirectory() + "\\TextFiles\\"+ fromAlbum + ".txt");
 
                 foreach (string line in lines)
                 {
@@ -119,7 +118,7 @@ namespace TidalApplication
                 Console.WriteLine("Dear user, something has went horribly wrong." +
                     "\nYou will be referred back to the beginning of the method.");                
             }
-
+           
             return list;
         }
 
