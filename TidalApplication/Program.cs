@@ -83,10 +83,11 @@ namespace TidalApplication
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
                 case 3:
+                    ProgramCases.ShowNextSong(songs, advertisements);
+                    SwitchChoice(userChoiceAlbum, songs, advertisements);
+                    break;
                 case 4:
-                    Console.WriteLine("Dear user, we are still working on option " + userChoice +
-                        ".\nPlease, excuse us for any inconvenience. You will be" +
-                        "\nrefered back to the main menu.");
+                    ProgramCases.ShuffleSongs(songs);
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
                 case 5:

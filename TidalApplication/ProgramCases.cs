@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace TidalApplication
 {
@@ -229,6 +231,83 @@ namespace TidalApplication
 
                  file.Close();
             }         
-        }       
+        }
+        
+        /// <summary>
+        /// The following method show the next song
+        /// in line. Then it changes it location to 
+        /// be at the end of the album
+        /// </summary>
+        /// <param name="songs"> is the list of songs </param>
+        /// <param name="advertisements"> is the list of ads </param>
+        public static void ShowNextSong(List<Song>songs, List<Ads>advertisements)
+        {
+            Song song = songs.ElementAt(0);
+            songs.RemoveAt(0);
+            Console.WriteLine(song.Representate(0));
+            songs.Add(song);
+
+            Ads ads = advertisements.ElementAt(0);
+            advertisements.RemoveAt(0);
+            Console.WriteLine(ads.Representate());
+            advertisements.Add(ads);
+        }
+
+        /// <summary>
+        /// The following method makes a call to a method
+        /// which starts a thread
+        /// </summary>
+        /// <param name="songs"> is the list of songs which has to be shuffled </param>
+        public static void ShuffleSongs(List<Song> songs)
+        {
+            Console.WriteLine("Dear user, we will be implementing the" +
+                "\nthe following method with the use of 'threads'");
+
+            Thread secondThread = new Thread(() => ShuffleThread(songs));
+            secondThread.Start();
+        }
+
+        /// <summary>
+        /// The following method shuffels the songs using
+        /// a thread implementation
+        /// </summary>
+        /// <param name="songs"> is the list of songs to be shuffled </param>
+        public static void ShuffleThread(List<Song> songs)
+        {
+            Song[] songArray = new Song[songs.Count];
+
+            List<int> chosenNumbers = new List<int>();
+
+            Random random = new Random();
+            int pickedPosition = random.Next(0, songs.Count);
+            int currentLocation = 0;
+
+            Console.WriteLine("1");
+            songs.ForEach(song => Console.WriteLine(song.Representate(pickedPosition)));
+
+            while (chosenNumbers.Count != songs.Count)
+            {
+                if (!chosenNumbers.Contains(pickedPosition))
+                {
+                    songArray[pickedPosition] = songs.ElementAt(currentLocation);
+                    currentLocation++;
+                    chosenNumbers.Add(pickedPosition);
+                    
+                }
+                pickedPosition = random.Next(0, songs.Count);
+            }
+
+            songs.RemoveRange(0, songs.Count());
+
+            for (int i = 0; i < songArray.Length; i++)
+            {
+                songs.Add(songArray[i]);
+                songs.ElementAt(i).SetTrackNumber("SONG " + (i + 1));
+            }
+
+            Console.WriteLine(songs.Count);
+            
+
+        }
     }
 }
