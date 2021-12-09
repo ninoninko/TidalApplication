@@ -1,0 +1,27 @@
+	Good day to all dear readers of the following README text file!
+
+	In the following lines I will go through the project I have created - TidalApplication.
+	I will describe its purpose, its use and the programming features which I have 
+used in order to create the following application.
+
+	The following application should serve as a MP3 player to all of its users - kids, 
+teenagers, adults and even elderly people! The program should ease its users - it is
+expected to show to them their available albums, their playlists, etc.
+
+	The program has 6 main features from which the user can choose. The user is able to
+see his current playlist after having chosen an album from which the application gathers
+information. The user is able to then add additional songs to or remove songs from his 
+PLAYLIST. The user can shuffle the songs in his playlist or choose to see only the next
+song in line to be turned on by the MP3. Additionaly, the user can write his current
+playlist to his ALBUM or create a new ALBUM and write inside of it. Meaning, the songs
+in the text file for that specific album are overwritten according to the current state
+of the user's playlist. On the other hand, from the moment the application is started
+the used is asked whether he wants to create a new album and add completely new songs
+it. His final option is no manually terminate the execution of the application by
+pressing a button. 
+
+	During the creation of the program I have been utilizing several types of C# data 
+structures - arrays, lists. I have used many classes to spread the production of the 
+code and be able to make use of "Inheritance" structures. Furthermore, I have used
+methods, condition and loop operators. Lastly, for the shuffling of the songs I have
+implemented threads.
