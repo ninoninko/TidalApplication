@@ -52,9 +52,11 @@ namespace TidalApplication
             Console.WriteLine("Dear user, please pick an option from our menu:" +
                 "\n1 - Show the current playlist" +
                 "\n2 – Add a new CD including songs" +
-                "\n3 – Play" +
-                "\n4 – Shuffle" +
-                "\n5 – Stop the program");
+                "\n3 - Remove a song from an album" +
+                "\n4 – Play" +
+                "\n5 – Shuffle" +
+                "\n6 - Write the current state of songs into an album" +               
+                "\n7 – Stop the program");
 
             // Get the user's choice to proceed
             int userChoice = ControlClass.GetNumberForChoice();
@@ -83,20 +85,36 @@ namespace TidalApplication
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
                 case 3:
+                    
+                    break;
+                case 4:
                     ProgramCases.ShowNextSong(songs, advertisements);
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
-                case 4:
+                case 5:
                     ProgramCases.ShuffleSongs(songs);
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
+                    break;               
+                case 6:
+                    ProgramCases.GoToFileWriting(userChoiceAlbum, songs, advertisements, false);
+                    SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
-                case 5:
+                case 7:
                     Console.WriteLine("Dear user, you have decided to cancel" +
-                        "\nthe execution of the following program." +
-                        "\nThank you for using our services.");
+                        "\nthe execution of the following program.");
+
+                    Console.WriteLine("Do you want to save the current state of your playlist into album?");
+                    Console.WriteLine("Please type 'yes' if that is the case");
+                    String decision = Console.ReadLine();
+
+                    if (decision.Equals("yes"))
+                    {
+                        ProgramCases.GoToFileWriting(userChoiceAlbum, songs, advertisements, false);
+                    }
+
+                    Console.WriteLine("\nThank you for using our services.");
                     Environment.Exit(0);
-                    break;
-                
+                    break;               
             }
         }
 
@@ -108,12 +126,11 @@ namespace TidalApplication
         public static void DoesUserOnlyWantToAddSongs()
         {
             Console.WriteLine("Dear user, do you want to add a song to a NEW album" +
-                "\ninstead of starting the entire application?" +
-                "\nPlease, type 'yes' if that is what you want.");
+                "\ninstead of starting the entire application?");
+                
+            string decision = ControlClass.StringDecision();
 
-            string decision = Console.ReadLine();
-
-            if (decision.Equals("yes"))
+            if (decision.Equals("Yes"))
             {
                 Console.WriteLine("How do you want to name your new album?");
                 string chosenAlbums = Console.ReadLine();
@@ -121,12 +138,11 @@ namespace TidalApplication
             }
 
             Console.WriteLine("Dear user, do you want to terminate the" +
-                "\nexecution of the aplication?" +
-                "\nPlease, type 'yes' if that is what you want.");
+                "\nexecution of the aplication?");
 
-            decision = Console.ReadLine();
+            decision = ControlClass.StringDecision();
 
-            if (decision.Equals("yes"))
+            if (decision.Equals("Yes"))
             {
                 Environment.Exit(1);
             }

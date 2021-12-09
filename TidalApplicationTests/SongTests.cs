@@ -170,7 +170,6 @@ namespace TidalApplicationTests
             Assert.IsTrue(song.GetTrackName().Equals(""));
         }
 
-
         /// <summary>
         /// The following unit test checks
         /// whether the constructor and getter
@@ -311,6 +310,5 @@ namespace TidalApplicationTests
             // Assert
             Assert.IsTrue(song.ToString().Equals("CD YANAKI, MISERY, 2021"));
         }
-
     }
 }

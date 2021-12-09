@@ -106,6 +106,5 @@ namespace TidalApplication
         {
             return _trackNumber + ", " + _trackName + ", " + _trackDuration;
         }
-
     }
 }

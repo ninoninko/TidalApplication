@@ -162,5 +162,22 @@ namespace TidalApplication
             return null;
            
         }
+
+
+        public static string StringDecision()
+        {
+            Console.WriteLine("Please, type 'Yes' if that is what you want." +
+                "\nPlease, type 'No' if you do not want to.");
+            
+            string decision = Console.ReadLine();
+
+            while (!(decision.Equals("Yes") || decision.Equals("No")))
+            {
+                Console.WriteLine("Dear user, you have to write either 'Yes' or 'No'");
+                decision = Console.ReadLine();
+            }
+
+            return decision;
+        }
     }
 }

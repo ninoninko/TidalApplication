@@ -282,9 +282,6 @@ namespace TidalApplication
             int pickedPosition = random.Next(0, songs.Count);
             int currentLocation = 0;
 
-            Console.WriteLine("1");
-            songs.ForEach(song => Console.WriteLine(song.Representate(pickedPosition)));
-
             while (chosenNumbers.Count != songs.Count)
             {
                 if (!chosenNumbers.Contains(pickedPosition))
@@ -304,9 +301,6 @@ namespace TidalApplication
                 songs.Add(songArray[i]);
                 songs.ElementAt(i).SetTrackNumber("SONG " + (i + 1));
             }
-
-            Console.WriteLine(songs.Count);
-            
         }
     }
 }

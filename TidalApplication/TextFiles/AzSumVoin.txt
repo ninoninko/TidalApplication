@@ -1,8 +1,8 @@
 CDS
 CD Yanaki, Siesta, 2001
-SONG 1, Az, 1:11
-SONG 2, Sum, 2:22
-SONG 3, Voin, 3:33
+SONG 1, Sum, 2:22
+SONG 2, Voin, 3:33
+SONG 3, Az, 1:11
 ADDS
 ADD Facebook, 0:20
 ADD Technopolis, 0:09

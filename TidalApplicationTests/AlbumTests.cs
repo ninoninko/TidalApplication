@@ -7,6 +7,10 @@ namespace TidalApplicationTests
     [TestClass]
     public class AlbumTests
     {
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor and GetArtistMethods work properly
+        /// </summary>
         [TestMethod]
         public void GetNameArtistWithStringTest()
         {
@@ -17,6 +21,10 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfArtist().Equals("Virgo"));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor and GetArtist methods work properly
+        /// </summary>
         [TestMethod]
         public void GetNameArtistEmptyStringTest()
         {
@@ -27,6 +35,10 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfArtist().Equals(""));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor and GetAlbumName methods work properly
+        /// </summary>
         [TestMethod]
         public void GetNameAlbumWithStringTest()
         {
@@ -37,6 +49,10 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfAlbum().Equals("Deva"));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor and GetAlbumName methods work properly
+        /// </summary>
         [TestMethod]
         public void GetNameAlbumEmptyStringTest()
         {
@@ -47,6 +63,10 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfAlbum().Equals(""));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor and GetProductionYear methods work properly
+        /// </summary>
         [TestMethod]
         public void GetProductionYearWithStringTest()
         {
@@ -57,6 +77,10 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetYearOfRelease().Equals(""));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor and GetProductionYear methods work properly
+        /// </summary>
         [TestMethod]
         public void GetProductionYearEmptyStringTest()
         {
@@ -67,6 +91,10 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetYearOfRelease().Equals(""));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor, SetArtistName and GetArtistMethods work properly
+        /// </summary>
         [TestMethod]
         public void SetNameArtistWithStringTest()
         {
@@ -80,6 +108,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfArtist().Equals("TRF"));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor, SetArtistName and 
+        /// GetArtistMethods work properly
+        /// </summary>
         [TestMethod]
         public void SetNameArtistEmptyStringTest()
         {
@@ -93,6 +126,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfArtist().Equals(""));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor, SetAlbumName and 
+        /// GetAlbumMethods work properly
+        /// </summary>
         [TestMethod]
         public void SetNameAlbumWithStringTest()
         {
@@ -106,6 +144,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfAlbum().Equals("TRF"));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor, SetAlbumName and 
+        /// GetAlbumMethods work properly
+        /// </summary>
         [TestMethod]
         public void SetNameAlbumEmptyStringTest()
         {
@@ -119,6 +162,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetNameOfAlbum().Equals(""));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor, SetProductionYear and 
+        /// GetProductionYear work properly
+        /// </summary>
         [TestMethod]
         public void SetProductionYearWithStringTest()
         {
@@ -132,6 +180,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetYearOfRelease().Equals("2000"));
         }
 
+        /// <summary>
+        /// The foolowing text checks whether the
+        /// constructor, SetProductionYear and 
+        /// GetProductionYear work properly
+        /// </summary>
         [TestMethod]
         public void SetProductionYearEmptyStringTest()
         {
@@ -145,6 +198,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.GetYearOfRelease().Equals(""));
         }
 
+        /// <summary>
+        /// The following methods checks whether
+        /// the Representation method works properly
+        /// under some manipulations of the class's attributes.
+        /// </summary>
         [TestMethod]
         public void RepresentateAllStringsTest()
         {
@@ -155,6 +213,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.Representate().Equals("Album: Virgo's Deva from 2000."));
         }
 
+        /// <summary>
+        /// The following methods checks whether
+        /// the Representation method works properly
+        /// under some manipulations of the class's attributes.
+        /// </summary>
         [TestMethod]
         public void RepresentateSomeStringsFirstTest()
         {
@@ -165,6 +228,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.Representate().Equals("Album: 's Deva from 2000."));
         }
 
+        /// <summary>
+        /// The following methods checks whether
+        /// the Representation method works properly
+        /// under some manipulations of the class's attributes.
+        /// </summary>
         [TestMethod]
         public void RepresentateSomeStringsSecondTest()
         {
@@ -175,6 +243,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.Representate().Equals("Album: Virgo's  from 2000."));
         }
 
+        /// <summary>
+        /// The following methods checks whether
+        /// the Representation method works properly
+        /// under some manipulations of the class's attributes.
+        /// </summary>
         [TestMethod]
         public void RepresentateSomeStringsThirdTest()
         {
@@ -185,6 +258,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.Representate().Equals("Album: Virgo's  from ."));
         }
 
+        /// <summary>
+        /// The following methods checks whether
+        /// the Representation method works properly
+        /// under some manipulations of the class's attributes.
+        /// </summary>
         [TestMethod]
         public void RepresentateSomeStringsOneAndThreeTest()
         {
@@ -195,6 +273,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.Representate().Equals("Album: 's Virgo from ."));
         }
 
+        /// <summary>
+        /// The following methods checks whether
+        /// the Representation method works properly
+        /// under some manipulations of the class's attributes.
+        /// </summary>
         [TestMethod]
         public void RepresentateSomeStringsSetTest()
         {
@@ -211,6 +294,11 @@ namespace TidalApplicationTests
             Assert.IsTrue(album.Representate().Equals("Album: Krisko's  from 2005."));
         }
 
+        /// <summary>
+        /// The following method checks
+        /// whether the class's attributes can be 
+        /// represented back in the file format
+        /// </summary>
         [TestMethod]
         public void ToStringAllStringsTest()
         {
