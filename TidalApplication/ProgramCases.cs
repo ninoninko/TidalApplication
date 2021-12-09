@@ -202,15 +202,20 @@ namespace TidalApplication
         /// <param name="newAlbum"> is whether a new file has to be created </param>
         public static void GoToFileWriting(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements, bool newAlbum)
         { 
+            
             // Write the list of Songs and the list of adds to the correct file 
             using StreamWriter file = new StreamWriter
             (Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\net5.0", "\\TextFiles\\") + userChoiceAlbum + ".txt", false);
             { 
                 file.WriteLine("CDS");
-                file.WriteLine(songs.ElementAt(0).ToStringSuper());
-                foreach (Song song in songs)
+
+                if (songs.Count != 0)
                 {
-                    file.WriteLine(song.ToString());
+                    file.WriteLine(songs.ElementAt(0).ToStringSuper());
+                    foreach (Song song in songs)
+                    {
+                        file.WriteLine(song.ToString());
+                    }
                 }
 
                 file.WriteLine("ADDS");
@@ -300,6 +305,48 @@ namespace TidalApplication
             {
                 songs.Add(songArray[i]);
                 songs.ElementAt(i).SetTrackNumber("SONG " + (i + 1));
+            }
+        }
+
+        public static void RemoveTrack(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements)
+        {
+            bool removeAnotherTrack = true;
+
+            while (removeAnotherTrack)
+            {
+                if (songs.Count == 0)
+                {
+                    Console.WriteLine("Dear user, your list of songs is empty.");
+                    return;
+                }
+
+                Console.WriteLine("Dear user, these are the songs inside your album of choice: " + userChoiceAlbum);
+
+                for (int i = 0; i < songs.Count; i++)
+                {
+                    Console.WriteLine(songs.ElementAt(i).Representate(i + 1));
+                }
+
+                Console.WriteLine("Dear user, which track do you want to be removed?");
+
+                int songChoice = 0;
+                String toRemove = Console.ReadLine();
+
+                while (!(int.TryParse(toRemove, out songChoice) && songChoice >= 1 && songChoice <= songs.Count))
+                {
+                    Console.WriteLine("Dear user, you are expected to write a number between 1 and " + songs.Count);
+                    toRemove = Console.ReadLine();
+                }
+
+                songs.RemoveAt(songChoice - 1);
+
+                Console.WriteLine("Dear user, do you want to remove another song?");
+                string decision = ControlClass.StringDecision();
+
+                if (decision.Equals("No"))
+                {
+                    removeAnotherTrack = false;
+                }
             }
         }
     }

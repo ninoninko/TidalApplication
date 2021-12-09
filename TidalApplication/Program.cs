@@ -85,7 +85,8 @@ namespace TidalApplication
                     SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
                 case 3:
-                    
+                    ProgramCases.RemoveTrack(userChoiceAlbum, songs, advertisements);
+                    SwitchChoice(userChoiceAlbum, songs, advertisements);
                     break;
                 case 4:
                     ProgramCases.ShowNextSong(songs, advertisements);

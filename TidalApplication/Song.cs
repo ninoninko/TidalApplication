@@ -93,7 +93,7 @@ namespace TidalApplication
         public string Representate(int current)
         {
             
-            return (base.Representate() + "\nTrack " + _trackName.Replace("SONG " + current, "")
+            return (base.Representate() + "\nTrack " + current + ": "+ _trackName.Replace("SONG " + current, "")
                 + " (" + _trackDuration +")");
         }
 
