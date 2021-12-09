@@ -71,7 +71,7 @@ namespace TidalApplication
         {
             List<string> fileNames = new List<string>();
 
-            DirectoryInfo directory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\TextFiles");          
+            DirectoryInfo directory = new DirectoryInfo(Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\net5.0", "\\TextFiles"));          
             FileInfo[] Files = directory.GetFiles("*.txt"); //Getting Text files
 
             foreach (FileInfo file in Files)
@@ -97,7 +97,7 @@ namespace TidalApplication
             List<string> list = new List<string>();
             try
             {
-                string[] lines = File.ReadAllLines(Directory.GetCurrentDirectory() + "\\TextFiles\\"+ fromAlbum + ".txt");
+                string[] lines = File.ReadAllLines(Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\net5.0", "\\TextFiles\\") + fromAlbum + ".txt");
 
                 foreach (string line in lines)
                 {
@@ -160,8 +160,7 @@ namespace TidalApplication
             }
 
             return null;
-
-            
+           
         }
     }
 }

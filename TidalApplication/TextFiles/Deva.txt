@@ -1,11 +1,12 @@
 CDS
 CD Virgo, Deva, 2021
-SONG 1, Space-out, 2:54
+SONG 1, Hasta manana, 2:23
 SONG 2, Kislorod, 1:11
-SONG 3, Hasta manana, 2:23
+SONG 3, Nqma nakude, 1:54
 SONG 4, Razlichen, 2:12
-SONG 5, Nqma nakude, 1:54
+SONG 5, Space-out, 2:54
 SONG 6, Ima nakude, 1:45
+SONG 7, Milioner, 3:12
 ADDS
 ADD Facebook, 0:20
 ADD Technopolis, 0:09

@@ -204,7 +204,7 @@ namespace TidalApplication
         { 
             // Write the list of Songs and the list of adds to the correct file 
             using StreamWriter file = new StreamWriter
-            (Directory.GetCurrentDirectory() + "\\TextFiles\\" + userChoiceAlbum + ".txt", false);
+            (Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\net5.0", "\\TextFiles\\") + userChoiceAlbum + ".txt", false);
             { 
                 file.WriteLine("CDS");
                 file.WriteLine(songs.ElementAt(0).ToStringSuper());
@@ -307,7 +307,6 @@ namespace TidalApplication
 
             Console.WriteLine(songs.Count);
             
-
         }
     }
 }

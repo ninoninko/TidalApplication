@@ -5,7 +5,6 @@ D:\C#\TidalProject\TidalApplication\TidalApplication\bin\Debug\net5.0\TidalAppli
 D:\C#\TidalProject\TidalApplication\TidalApplication\bin\Debug\net5.0\TidalApplication.dll
 D:\C#\TidalProject\TidalApplication\TidalApplication\bin\Debug\net5.0\ref\TidalApplication.dll
 D:\C#\TidalProject\TidalApplication\TidalApplication\bin\Debug\net5.0\TidalApplication.pdb
-D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.csproj.AssemblyReference.cache
 D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.GeneratedMSBuildEditorConfig.editorconfig
 D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.AssemblyInfoInputs.cache
 D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.AssemblyInfo.cs
@@ -14,3 +13,4 @@ D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalAppli
 D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\ref\TidalApplication.dll
 D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.pdb
 D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.genruntimeconfig.cache
+D:\C#\TidalProject\TidalApplication\TidalApplication\obj\Debug\net5.0\TidalApplication.csproj.AssemblyReference.cache
