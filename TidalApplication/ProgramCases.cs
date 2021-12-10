@@ -308,6 +308,12 @@ namespace TidalApplication
             }
         }
 
+        /// <summary>
+        /// The following method removes songs from the current album
+        /// </summary>
+        /// <param name="userChoiceAlbum"> is the album from which songs will be removed </param>
+        /// <param name="songs"> is the list of tracks in the album </param>
+        /// <param name="advertisements"> is the list of advertisements in the album </param>
         public static void RemoveTrack(string userChoiceAlbum, List<Song> songs, List<Ads> advertisements)
         {
             bool removeAnotherTrack = true;

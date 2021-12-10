@@ -163,7 +163,11 @@ namespace TidalApplication
            
         }
 
-
+        /// <summary>
+        /// The following method get from the user 
+        /// a simple 'Yes' or 'No' answer
+        /// </summary>
+        /// <returns> the user's answer </returns>
         public static string StringDecision()
         {
             Console.WriteLine("Please, type 'Yes' if that is what you want." +
